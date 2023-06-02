@@ -43,3 +43,28 @@ git clone https://github.com/Kiloechoalpha/KEALET908_BCL2302_Benjamin_KealebogaL
 - As a user, I want to filter books by genre so that I can find books to read in genres that I enjoy.
 
 - As a user, I want to toggle between dark and light modes so that I can use the app comfortably at night.
+
+
+
+# User Story 1
+
+## Feature
+- Incrementing Counter
+ 
+## Scenario
+- Clicking the "+" button should increment the counter value
+- Given the counter value is 0
+- When the user clicks the "+" button
+- Then the counter value should be 5
+
+
+# User Story 2
+
+## Feature:
+- Maximum Limit for Counter
+
+## Scenario: 
+- Counter value should not exceed the maximum limit
+- Given the counter value is 15
+- When the user clicks the "+" button
+- Then the counter value should remain 15
