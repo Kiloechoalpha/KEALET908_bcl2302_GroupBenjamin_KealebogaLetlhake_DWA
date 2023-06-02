@@ -46,6 +46,7 @@ git clone https://github.com/Kiloechoalpha/KEALET908_BCL2302_Benjamin_KealebogaL
 - As a user, I want to filter books by genre so that I can find books to read in genres that I enjoy.
 
 - As a user, I want to toggle between dark and light modes so that I can use the app comfortably at night.
+
 ________________________________________________________________________________________________________________________________________________________________
 
 DW3.2 (User stories in Gherkin syntax)
