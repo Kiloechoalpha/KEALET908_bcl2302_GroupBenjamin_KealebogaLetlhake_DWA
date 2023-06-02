@@ -77,19 +77,19 @@ DW3.2 (User stories in Gherkin syntax)
 - Decrementing Counter
 
 # Scenario: Clicking the "-" button should decrement the counter value
-    Given the counter value is 5
-    When the user clicks the "-" button
-    Then the counter value should be 0
+- Given the counter value is 5
+- When the user clicks the "-" button
+- Then the counter value should be 0
 
 
 # User Story 2
+
 ## Feature: Minimum Limit for Counter
 
-
 ## Scenario: Counter value should not go below the minimum limit
-    Given the counter value is -15
-    When the user clicks the "-" button
-    Then the counter value should remain -15
+- Given the counter value is -15
+- When the user clicks the "-" button
+- Then the counter value should remain -15
   
 
 ________________________________________________________________________________________________________________________________________________________________
