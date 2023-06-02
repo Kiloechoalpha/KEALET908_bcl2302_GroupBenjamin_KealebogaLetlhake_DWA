@@ -55,8 +55,7 @@ DW3.2 (User stories in Gherkin syntax)
 ## Feature
 - Incrementing Counter
  
-## Scenario
-- Clicking the "+" button should increment the counter value
+## Scenario: Clicking the "+" button should increment the counter value
 - Given the counter value is 0
 - When the user clicks the "+" button
 - Then the counter value should be 5
@@ -67,10 +66,30 @@ DW3.2 (User stories in Gherkin syntax)
 ## Feature:
 - Maximum Limit for Counter
 
-## Scenario: 
-- Counter value should not exceed the maximum limit
+## Scenario: Counter value should not exceed the maximum limit
 - Given the counter value is 15
 - When the user clicks the "+" button
 - Then the counter value should remain 15
+
+# User Story 1
+
+## Feature:
+- Decrementing Counter
+
+# Scenario: Clicking the "-" button should decrement the counter value
+    Given the counter value is 5
+    When the user clicks the "-" button
+    Then the counter value should be 0
+
+
+# User Story 2
+## Feature: Minimum Limit for Counter
+
+
+## Scenario: Counter value should not go below the minimum limit
+    Given the counter value is -15
+    When the user clicks the "-" button
+    Then the counter value should remain -15
+  
 
 ________________________________________________________________________________________________________________________________________________________________
