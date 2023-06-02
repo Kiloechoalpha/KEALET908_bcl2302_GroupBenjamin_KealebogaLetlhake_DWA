@@ -1,6 +1,9 @@
 KEALET908_bcl2302_GroupBenjamin_KealebogaLetlhake_DWA.
 This is where I will store my DWA projects.
 
+________________________________________________________________________________________________________________________________________________________________
+DW3.1 
+
 # Book Connent 
 
 This Book Connect interactive web app is designed to be simple and user-friendly, it is a website targeting book enthusiast who are looking for new books to read. The website includes basic features that allow the user to navigate through the website.
@@ -43,8 +46,9 @@ git clone https://github.com/Kiloechoalpha/KEALET908_BCL2302_Benjamin_KealebogaL
 - As a user, I want to filter books by genre so that I can find books to read in genres that I enjoy.
 
 - As a user, I want to toggle between dark and light modes so that I can use the app comfortably at night.
+________________________________________________________________________________________________________________________________________________________________
 
-
+DW3.2 (User stories in Gherkin syntax)
 
 # User Story 1
 
@@ -68,3 +72,5 @@ git clone https://github.com/Kiloechoalpha/KEALET908_BCL2302_Benjamin_KealebogaL
 - Given the counter value is 15
 - When the user clicks the "+" button
 - Then the counter value should remain 15
+
+________________________________________________________________________________________________________________________________________________________________
