@@ -2,7 +2,7 @@ KEALET908_bcl2302_GroupBenjamin_KealebogaLetlhake_DWA.
 This is where I will store my DWA projects.
 
 ________________________________________________________________________________________________________________________________________________________________
-DW3.1 (Markdown File)
+DWA3.1 (Markdown File)
 
 # Book Connent 
 
@@ -49,7 +49,7 @@ git clone https://github.com/Kiloechoalpha/KEALET908_BCL2302_Benjamin_KealebogaL
 
 ________________________________________________________________________________________________________________________________________________________________
 
-DW3.2 (User stories in Gherkin syntax)
+DWA3.2 (User stories in Gherkin syntax)
 
 # User Story 1
 
