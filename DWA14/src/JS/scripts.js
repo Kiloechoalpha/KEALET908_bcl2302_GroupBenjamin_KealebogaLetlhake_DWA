@@ -1,111 +1,168 @@
-import { html, css, LitElement } from 'lit';
+import {LitElement, css, html} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
 const MAX_NUMBER = 15;
 const MIN_NUMBER = -5;
 const STEP_AMOUNT = 5;
 
-class TallyCounter extends LitElement {
+export class TallyCount extends LitElement {
   static styles = css`
-    .counter {
+    :host {
+      --color-green: #31c48d;
+      --color-light-grey: #fff;
+      --color-dark-grey: #333d;
+      --color-medium-grey: #424250;
+      --color-light--grey: #8d97a7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100vh;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-medium-grey);
+      color: var(--color-light-grey);
+      font-family:  Arial, Helvetica, sans-serif;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    /* header */
+    .header {
+      text-align: center;
+    }
+
+    .header__title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-light--grey);
+    }
+
+    /* controls */
+    .controls {
+      background: grey;
+    }
+
+    /* counter */
+    .counter {
+      background: var(--black);
     }
 
     .counter__value {
-      font-size: 24px;
-      padding: 8px;
-      width: 60px;
+      width: 100%;
+      height: 15rem;
       text-align: center;
+      font-size: 6rem;
+      font-weight: 900;
+      background: none;
+      color: var(--color-light-grey);
+      border-width: 0;
+      border-bottom: 1px solid var(--color-light--grey);
     }
 
     .counter__actions {
       display: flex;
-      flex-direction: column;
     }
 
     .counter__button {
-      font-size: 18px;
-      padding: 4px 8px;
-      margin-top: 4px;
+      background: none;
+      width: 50%;
+      border: 0;
+      color: var(--color-light grey);
+      font-size: 3rem;
+      height: 10rem;
+      border-bottom: 1px solid var(--color-light--grey);
+      transition: transform 0.3s;
+      transform: translateY(0);
+    }
+
+    .counter__button:disabled {
+      opacity: 0.2;
+    }
+
+    .counter__button:active {
+      background: var(--color-medium-grey);
+      transform: translateY(2%);
     }
 
     .counter__button_first {
-      margin-bottom: 4px;
+      border-right: 1px solid var(--color-light--grey);
     }
 
-    .counter__state {
-      margin-top: 16px;
-      font-weight: bold;
+    .footer {
+      background: var(--black);
+      color: var(--color-light--grey);
+      padding: 2rem;
+      font-size: 0.8rem;
+      text-align: center;
     }
 
-    .counter__state--minimum {
-      color: red;
-    }
-
-    .counter__state--maximum {
-      color: green;
+    .footer__link {
+      color: var(--color-light grey);
     }
   `;
 
   static properties = {
-    value: { type: Number },
-    state: { type: String },
+    count: { type: Number },
   };
 
   constructor() {
     super();
-    this.value = 0;
-    this.state = 'Normal';
+    this.count = 0;
   }
 
-  subtract() {
-    const newValue = this.value - STEP_AMOUNT;
-    this.value = newValue;
-
-    this.updateButtonStates();
-    this.updateState();
+  subtractHandler() {
+    this.count -= STEP_AMOUNT;
+    this.requestUpdate();
   }
 
-  add() {
-    const newValue = this.value + STEP_AMOUNT;
-    this.value = newValue;
-
-    this.updateButtonStates();
-    this.updateState();
-  }
-
-  updateButtonStates() {
-    const subtractButton = this.shadowRoot.querySelector('[data-key="subtract"]');
-    const addButton = this.shadowRoot.querySelector('[data-key="add"]');
-
-    subtractButton.disabled = this.value <= MIN_NUMBER;
-    addButton.disabled = this.value >= MAX_NUMBER;
-  }
-
-  updateState() {
-    if (this.value <= MIN_NUMBER) {
-      this.state = 'Minimum Reached';
-    } else if (this.value >= MAX_NUMBER) {
-      this.state = 'Maximum Reached';
-    } else {
-      this.state = 'Normal';
-    }
+  addHandler() {
+    this.count += STEP_AMOUNT;
+    this.requestUpdate();
   }
 
   render() {
     return html`
-      <main class="counter">
-        <input class="counter__value" data-key="number" readonly .value=${this.value}>
-        <div class="counter__actions">
-          <button data-key="subtract" class="counter__button counter__button_first" @click=${this.subtract}>-</button>
-          <button data-key="add" class="counter__button" @click=${this.add}>+</button>
+      <div class="header">
+        <h1 class="header__title">Tally Count App</h1>
+      </div>
+      <div class="controls">
+        <div class="counter">
+          <input
+            class="counter__value"
+            type="number"
+            .value=${this.count}
+            disabled
+          />
+          <div class="counter__actions">
+            <button
+              class="counter__button counter__button_first"
+              @click=${this.subtractHandler}
+              ?disabled=${this.count <= MIN_NUMBER}
+            >
+              Subtract
+            </button>
+            <button
+              class="counter__button"
+              @click=${this.addHandler}
+              ?disabled=${this.count >= MAX_NUMBER}
+            >
+              Add
+            </button>
+          </div>
         </div>
-      </main>
-      <div class="counter__state ${this.state === 'Minimum Reached' ? 'counter__state--minimum' : this.state === 'Maximum Reached' ? 'counter__state--maximum' : ''}">
-        ${this.state}
+      </div>
+      <div class="footer">
+        Created by <a class="footer__link" href="https://github.com/Kiloechoalpha/KEALET908_bcl2302_GroupBenjamin_KealebogaLetlhake_DWA">Kealeboga Letlhake</a>
       </div>
     `;
   }
 }
 
-customElements.define('tally-counter', TallyCounter);
+customElements.define('tally-count', TallyCount);
