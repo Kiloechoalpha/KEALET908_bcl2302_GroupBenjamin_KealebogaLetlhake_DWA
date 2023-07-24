@@ -1,5 +1,5 @@
 import React from "react"
-import memesData from "../memeData"
+import memesData from "./memesData"
 
 export default function Meme() {
     /**
@@ -17,7 +17,7 @@ export default function Meme() {
     })
     const [allMemeImages, setAllMemeImages] = React.useState(memesData)
     
-    
+    //Called when the user clicks on "Get a new meme image 🖼" 
     function getMemeImage() {
         const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
@@ -29,7 +29,7 @@ export default function Meme() {
         
     }
     
-    function handleChange(event) {
+      function handleChange(event) {
         const {name, value} = event.target
         setMeme(prevMeme => ({
             ...prevMeme,
